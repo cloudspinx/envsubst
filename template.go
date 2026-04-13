@@ -3,9 +3,9 @@ package envsubst
 import (
 	"bytes"
 	"io"
-	"io/ioutil"
+	"os"
 
-	"github.com/drone/envsubst/v2/parse"
+	"github.com/cloudspinx/envsubst/parse"
 )
 
 // state represents the state of template execution. It is not part of the
@@ -38,7 +38,7 @@ func Parse(s string) (t *Template, err error) {
 // ParseFile creates a new shell format template and parses the template
 // definition from the named file.
 func ParseFile(path string) (*Template, error) {
-	b, err := ioutil.ReadFile(path)
+	b, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
 	}
