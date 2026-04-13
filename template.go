@@ -11,8 +11,7 @@ import (
 // state represents the state of template execution. It is not part of the
 // template so that multiple executions can run in parallel.
 type state struct {
-	template *Template
-	writer   io.Writer
+	writer io.Writer
 	node     parse.Node // current node
 
 	// maps variable names to values
